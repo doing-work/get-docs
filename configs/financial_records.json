@@ -28,6 +28,7 @@
   "use_smart_waiting": true,
   "skip_visited_pages": true,
   "page_wait_time": 1.0,
-  "filter_wait_time": 2.0
+  "filter_wait_time": 2.0,
+  "filter_to_financial_only": true
 }
 

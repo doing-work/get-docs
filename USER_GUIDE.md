@@ -226,7 +226,8 @@ Edit `configs/financial_records.json` to customize behavior:
   "rate_limit_delay": 1.0,
   "years_back": 5,
   "max_filter_iterations": 4,
-  "top_pages_for_filters": 3
+  "top_pages_for_filters": 3,
+  "filter_to_financial_only": false
 }
 ```
 
@@ -257,6 +258,7 @@ export YEARS_BACK="3"
 | `years_back` | Years to include in filters | `5` |
 | `max_filter_iterations` | Max filter changes per page | `4` |
 | `top_pages_for_filters` | Number of top pages for filters | `3` |
+| `filter_to_financial_only` | `true` to download only 10-K/10-Q filings | `false` |
 
 ## Troubleshooting
 

@@ -36,7 +36,7 @@ logger = logging.getLogger(__name__)
 class FileDownloader:
     """Handles detection and downloading of financial documents"""
     
-    def __init__(self, download_dir="downloads", driver=None, company_name=None, max_workers=None):
+    def __init__(self, download_dir="downloads", driver=None, company_name=None, max_workers=None, filter_financial_only=False):
         """
         Initialize file downloader
         
@@ -52,6 +52,7 @@ class FileDownloader:
         self.downloaded_urls = set()
         self.company_name = company_name
         self.max_workers = max_workers or MAX_CONCURRENT_DOWNLOADS
+        self.filter_financial_only = filter_financial_only
         
         # Create download directory
         os.makedirs(download_dir, exist_ok=True)
@@ -273,6 +274,12 @@ class FileDownloader:
         
         return (company, year, quarter)
     
+    def _should_include_file(self, url, link_text):
+        """Determine if file should be included based on filtering rules"""
+        if not self.filter_financial_only:
+            return True
+        return self.is_quarterly_or_annual(url, link_text)
+    
     def find_file_links_fast(self, driver):
         """
         Fast file link detection using CSS selectors
@@ -303,7 +310,7 @@ class FileDownloader:
                             if url:
                                 url = urljoin(driver.current_url, url)
                                 link_text = link.text.strip()
-                                if url not in [l[0] for l in file_links]:
+                                if url not in [l[0] for l in file_links] and self._should_include_file(url, link_text):
                                     file_links.append((url, link, link_text))
                         except Exception:
                             continue
@@ -318,7 +325,7 @@ class FileDownloader:
                     url = match.group(0)
                     if url not in [link[0] for link in file_links]:
                         ext = self.get_file_extension(url)
-                        if ext:
+                        if ext and self._should_include_file(url, ""):
                             file_links.append((url, None, ""))
             except Exception:
                 pass
@@ -390,9 +397,9 @@ class FileDownloader:
                     link_text = link.text.strip()
                     
                     # Include all files with allowed extensions (no name filtering)
-                    if ext:
+                    if ext and self._should_include_file(url, link_text):
                         file_links.append((url, link, link_text))
-                    elif self.is_financial_document(url, link_text):
+                    elif not self.filter_financial_only and self.is_financial_document(url, link_text):
                         # Include HTML pages that might contain financial documents
                         file_links.append((url, link, link_text))
                 
@@ -408,7 +415,7 @@ class FileDownloader:
                 if url not in [link[0] for link in file_links]:
                     # Include all files with allowed extensions (no name filtering)
                     ext = self.get_file_extension(url)
-                    if ext:
+                    if ext and self._should_include_file(url, ""):
                         file_links.append((url, None, ""))
         
         except Exception as e:

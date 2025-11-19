@@ -150,6 +150,7 @@ Edit `configs/financial_records.json` to customize:
 - `max_depth`: Maximum navigation depth
 - `headless`: Run browser without GUI
 - `wait_time`: Time to wait for page loads
+- `filter_to_financial_only`: When `true`, only download 10-K/10-Q (Form 10) files
 
 ## How It Works
 

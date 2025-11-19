@@ -61,6 +61,7 @@ class Config:
             'skip_visited_pages': True,
             'page_wait_time': 1.0,
             'filter_wait_time': 2.0,
+            'filter_to_financial_only': True,
         }
     
     def _load_from_file(self):

@@ -132,10 +132,13 @@ class FinancialCrawler:
             )
             
             # Initialize file downloader with driver and company name
+            max_workers = self.config.get('max_concurrent_downloads', 5)
             self.file_downloader = FileDownloader(
                 download_dir=self.download_dir,
                 driver=env.driver,
-                company_name=self.company_name
+                company_name=self.company_name,
+                max_workers=max_workers,
+                filter_financial_only=self.config.get('filter_to_financial_only', False)
             )
             
             # Initialize agent
@@ -262,11 +265,14 @@ class FinancialCrawler:
                     driver = webdriver.Chrome(options=chrome_options)
             
             try:
-                # Initialize file downloader with company name
+                # Initialize file downloader with company name and config options
+                max_workers = self.config.get('max_concurrent_downloads', 5)
                 self.file_downloader = FileDownloader(
                     download_dir=self.download_dir,
                     driver=driver,
-                    company_name=self.company_name
+                    company_name=self.company_name,
+                    max_workers=max_workers,
+                    filter_financial_only=self.config.get('filter_to_financial_only', False)
                 )
                 
                 # Navigate to company URL
