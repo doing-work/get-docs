@@ -1,0 +1,17 @@
+# Core Glider dependencies
+keras>=2.2.5
+tensorflow>=2.4.0
+selenium
+matplotlib
+networkx
+Pillow
+numpy
+spacy
+
+# Additional dependencies for financial crawler
+requests
+beautifulsoup4
+openpyxl
+urllib3
+tqdm
+

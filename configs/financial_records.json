@@ -1,0 +1,33 @@
+{
+  "feature_cache_size": 5000,
+  "n_backup_episodes": 50,
+  "n_train_episodes": 200,
+  "n_test_episodes": 100,
+  "train_tasks": [".*"],
+  "test_tasks": ["financial_records_"],
+  "file_types": ["pdf", "xlsx", "html"],
+  "download_directory": "downloads",
+  "financial_keywords": [
+    "annual",
+    "quarterly",
+    "earnings",
+    "financial",
+    "statement",
+    "10-K",
+    "10-Q",
+    "SEC",
+    "filing",
+    "report"
+  ],
+  "rate_limit_delay": 0.5,
+  "max_depth": 10,
+  "headless": false,
+  "wait_time": 1.0,
+  "max_concurrent_downloads": 5,
+  "use_parallel_downloads": true,
+  "use_smart_waiting": true,
+  "skip_visited_pages": true,
+  "page_wait_time": 1.0,
+  "filter_wait_time": 2.0
+}
+

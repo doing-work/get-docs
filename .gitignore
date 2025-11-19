@@ -1,0 +1,238 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv
+env.bak/
+venv.bak/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.pydevproject
+.settings/
+*.sublime-project
+*.sublime-workspace
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# PyCharm
+.idea/
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Project specific
+downloads/
+data/tasks/*.json
+!data/tasks/.gitkeep
+*.log
+checkpoint.json
+*.checkpoint
+reports/
+*.report
+
+# Glider is included as a git submodule
+# Don't ignore the directory itself, but ignore generated files within it
+# glider/  # Commented out - using submodule instead
+
+# Glider generated files
+glider/data/tasks/*.json
+glider/output/
+glider/models/
+glider/logs/
+glider/*.log
+
+# Downloaded files and reports
+downloads/
+reports/
+*.pdf
+*.xlsx
+*.html
+*.htm
+
+# But keep example/template files if needed
+!configs/*.json
+!README.md
+!*.md
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Test coverage
+.coverage
+.coverage.*
+htmlcov/
+.pytest_cache/
+.tox/
+.hypothesis/
+
+# MyPy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre
+.pyre/
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.backup
+*.old
+
+# Database files (if any)
+*.db
+*.sqlite
+*.sqlite3
+
+# Compiled files
+*.pyc
+*.pyo
+*.pyd
+
+# Distribution / packaging
+.Python
+build/
+dist/
+*.egg-info/
+
+# Sphinx documentation
+docs/_build/
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Unit test / coverage reports
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff (if applicable)
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Flask stuff (if applicable)
+instance/
+.webassets-cache
+
+# Scrapy stuff (if applicable)
+.scrapy
+
+# Celery stuff (if applicable)
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath parsed files (if applicable)
+*.sage.py
+
+# Spyder project settings (if applicable)
+.spyderproject
+.spyproject
+
+# Rope project settings (if applicable)
+.ropeproject
+
+# mkdocs documentation (if applicable)
+/site
+
+# mypy (if applicable)
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker (if applicable)
+.pyre/
+
+# Project specific - keep structure but ignore content
+downloads/*
+!downloads/.gitkeep
+data/tasks/*
+!data/tasks/.gitkeep
+
+# Checkpoint and state files
+checkpoint.json
+*.checkpoint
+*.state
+
+# Report files
+report.json
+report.txt
+*.report
+
+# Log files
+*.log
+logs/
+*.log.*
+
+# ChromeDriver (if downloaded locally)
+chromedriver*
+!chromedriver.exe.example
+
+# Selenium
+geckodriver.log
+*.crx
+*.pem
+
+# Node modules (if any JS tools are used)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Package files
+*.tar.gz
+*.zip
+*.whl
+

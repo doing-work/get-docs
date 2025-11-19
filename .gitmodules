@@ -1,0 +1,3 @@
+[submodule "glider"]
+	path = glider
+	url = https://github.com/doing-work/glider_tasklet_crawler.git
